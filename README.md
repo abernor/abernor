@@ -58,7 +58,17 @@ The loop itself lives in `src/orchestrator.py`; configuration in `src/config.py`
     └── agents/           # one module per stage
 ```
 
-## Setup
+## Quick start
+
+```bash
+./run.sh                 # sets up venv + deps + .env, then launches the dashboard
+./run.sh cli "Build a CLI that reverses a string"   # or run the pipeline via CLI
+```
+
+`run.sh` creates the virtualenv, installs dependencies, and scaffolds `.env` on
+first run. Edit `.env` to add your `ANTHROPIC_API_KEY` before running a real goal.
+
+## Manual setup
 
 ```bash
 python -m venv .venv && source .venv/bin/activate
@@ -69,7 +79,8 @@ cp .env.example .env      # then add your ANTHROPIC_API_KEY
 ## Usage
 
 ```bash
-python main.py "Build a CLI that reverses a string"
+streamlit run app.py                                  # web dashboard
+python main.py "Build a CLI that reverses a string"   # command line
 ```
 
 ## Configuration

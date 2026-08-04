@@ -1,0 +1,4 @@
+# AI Orchestrator — core dependencies
+anthropic>=0.116.0        # Official Anthropic SDK (Claude)
+python-dotenv>=1.0.1      # Load configuration from .env
+rich>=13.7.0              # Nicer console output for the pipeline log

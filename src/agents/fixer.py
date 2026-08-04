@@ -12,7 +12,14 @@ _SYSTEM = (
 )
 
 
-def fix(plan_text: str, code_text: str, report: str) -> str:
+def fix(
+    plan_text: str,
+    code_text: str,
+    report: str,
+    *,
+    model: str | None = None,
+    effort: str | None = None,
+) -> str:
     """Return corrected code addressing the failing test report."""
     user = f"Plan:\n{plan_text}\n\nCurrent code:\n{code_text}\n\nTest report:\n{report}"
-    return ask(_SYSTEM, user)
+    return ask(_SYSTEM, user, model=model, effort=effort)

@@ -11,6 +11,6 @@ _SYSTEM = (
 )
 
 
-def code(plan_text: str) -> str:
+def code(plan_text: str, *, model: str | None = None, effort: str | None = None) -> str:
     """Return generated source code for the given plan."""
-    return ask(_SYSTEM, f"Plan:\n{plan_text}")
+    return ask(_SYSTEM, f"Plan:\n{plan_text}", model=model, effort=effort)

@@ -19,8 +19,16 @@ class TestResult:
     report: str
 
 
-def test(plan_text: str, code_text: str) -> TestResult:
+def test(
+    plan_text: str,
+    code_text: str,
+    *,
+    model: str | None = None,
+    effort: str | None = None,
+) -> TestResult:
     """Return whether the code passes, plus a report describing any failures."""
-    response = ask(_SYSTEM, f"Plan:\n{plan_text}\n\nCode:\n{code_text}")
+    response = ask(
+        _SYSTEM, f"Plan:\n{plan_text}\n\nCode:\n{code_text}", model=model, effort=effort
+    )
     passed = response.strip().upper().startswith("PASS")
     return TestResult(passed=passed, report=response)

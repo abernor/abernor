@@ -11,6 +11,6 @@ _SYSTEM = (
 )
 
 
-def plan(goal: str) -> str:
+def plan(goal: str, *, model: str | None = None, effort: str | None = None) -> str:
     """Return an implementation plan for the given goal."""
-    return ask(_SYSTEM, f"Goal:\n{goal}")
+    return ask(_SYSTEM, f"Goal:\n{goal}", model=model, effort=effort)

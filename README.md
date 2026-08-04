@@ -65,8 +65,18 @@ The loop itself lives in `src/orchestrator.py`; configuration in `src/config.py`
 ./run.sh cli "Build a CLI that reverses a string"   # or run the pipeline via CLI
 ```
 
-`run.sh` creates the virtualenv, installs dependencies, and scaffolds `.env` on
-first run. Edit `.env` to add your `ANTHROPIC_API_KEY` before running a real goal.
+Or via `make`:
+
+```bash
+make run                        # launch the dashboard
+make cli GOAL="Build a REST API"  # run the pipeline via CLI
+make setup                      # prepare env only (no launch)
+make clean                      # remove venv, caches, workspace output
+```
+
+Both `run.sh` and the `make` targets create the virtualenv, install
+dependencies, and scaffold `.env` on first run. Edit `.env` to add your
+`ANTHROPIC_API_KEY` before running a real goal.
 
 ## Manual setup
 

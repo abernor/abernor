@@ -6,6 +6,7 @@
 #   ./run.sh                 # launch the Streamlit dashboard (default)
 #   ./run.sh web             # launch the Streamlit dashboard
 #   ./run.sh cli "<goal>"    # run the pipeline from the command line
+#   ./run.sh setup           # prepare venv + deps + .env, then exit
 #
 # On first run it creates a virtualenv, installs dependencies, and scaffolds
 # .env from the template.
@@ -44,6 +45,9 @@ fi
 # 4. Launch
 MODE="${1:-web}"
 case "$MODE" in
+  setup)
+    echo "==> Setup complete. Edit .env to add your ANTHROPIC_API_KEY, then ./run.sh"
+    ;;
   web)
     echo "==> Launching dashboard at http://localhost:8501"
     exec streamlit run app.py
